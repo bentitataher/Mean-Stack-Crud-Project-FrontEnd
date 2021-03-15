@@ -1,0 +1,94 @@
+<div class="container">
+
+    <div class="container">
+        <div class="row">
+
+            <!-- Début - Block - I -->
+            <div class="col-3"></div>
+            <!-- Fin - Block - I -->
+
+            <!-- Début - block - II -->
+            <div class="col-6">
+                <form [formGroup]="editForm">
+
+                            <!-- Début - Input - Nom -->
+                            <div class="form-group">
+                                <label for="nom">Nom</label>
+                                <input [class.is-invalid]="editForm.get('nom').invalid &&
+                                                        editForm.get('nom').touched" formControlName="nom" type="text" class="form-control" id="nom" placeholder="Entrez votre nom">
+                                
+                                <div *ngIf="editForm.get('nom').invalid && editForm.get('nom').touched">
+                                  <small *ngIf="editForm.get('nom').errors?.required" class="text-danger">Ce champ est obligatoire</small>  
+                                  <small *ngIf="editForm.get('nom').errors?.minlength" class="text-danger">3 caratères au minimum</small>  
+                                </div>
+                            </div>
+                            <!-- Fin - Input - Nom -->
+
+                            <!-- Début - Input - Prenom -->
+                            <div class="form-group">
+                                <label for="nom">Prenom</label>
+                                <input [class.is-invalid]="editForm.get('prenom').invalid &&
+                                                           editForm.get('prenom').touched" formControlName="prenom" type="text" class="form-control" id="nom" placeholder="Entrez votre prenom">
+                                
+                                <div *ngIf="editForm.get('prenom').invalid && editForm.get('prenom').touched">
+                                   <small *ngIf="editForm.get('prenom').errors?.required" class="text-danger">Ce champ est obligatoire</small>  
+                                   <small *ngIf="editForm.get('prenom').errors?.minlength" class="text-danger">3 caratères au minimum</small>  
+                                </div>
+                            </div>
+                            <!-- Fin - Input - Prenom -->
+
+                            <!-- Début - Input - E-mail -->
+                            <div class="form-group">
+                                <label for="nom">E-mail</label>
+                                <input [class.is-invalid]="editForm.get('email').invalid &&
+                                                           editForm.get('email').touched" formControlName="email" type="text" class="form-control" id="nom" placeholder="Entrez votre e-mail">
+                           
+                                <div *ngIf="editForm.get('email').invalid && editForm.get('email').touched">
+                                 <small *ngIf="editForm.get('email').errors?.required" class="text-danger">Ce champ est obligatoire</small>  
+                                 <small *ngIf="editForm.get('email').errors?.email" class="text-danger">exemple@exemple.com</small>  
+                                </div>
+                            </div>
+                            <!-- Fin - Input - E-mail -->
+
+                            <!-- Début - Input - Password -->
+                            <div class="form-group">
+                                <label for="nom">Mot de passe</label>
+                                <input [class.is-invalid]="editForm.get('password').invalid &&
+                                                           editForm.get('password').touched" formControlName="password" type="password" class="form-control" id="nom" placeholder="Chisissez un mot de passe">
+                            
+                                <div *ngIf="editForm.get('password').invalid && editForm.get('password').touched">
+                                 <small *ngIf="editForm.get('password').errors?.required" class="text-danger">Ce champ est obligatoire</small>  
+                                 <small *ngIf="editForm.get('password').errors?.pattern" class="text-danger">format invalid</small>  
+                                </div>
+                            </div>
+                            <!-- Fin - Input - Password -->
+
+                            <!-- Début - Input - Confirm password -->
+                            <div class="form-group">
+                                <label for="nom">Confirmation mot de passe</label>
+                                <input formControlName="confirmPassword" type="password" class="form-control" id="nom" placeholder="Confirmez votre mot de passe">
+                            
+                                <div class="mt-0" *ngIf="editForm.errors && editForm.get('confirmPassword').touched">
+                                 <small class="text-danger" *ngIf="editForm.errors?.misMatch">Le mot de passe n'est Conforme</small>
+                                </div>
+                            </div>
+                            <!-- Fin - Input - Confirm password -->   
+
+                            <!-- Début - Bouton - Submit -->
+                            <button type="submit" class="mt-5 btn btn-outline-primary btn-lg btn-block" (click)="edit()">Edit</button>
+                            <!-- Fin - Bouton - Submit -->
+                            
+                </form>
+            </div>  
+            <!-- Fin - block - II -->
+
+            <!-- Début - block - III -->
+            <div class="col-3"></div> 
+            <!-- Fin - block - III -->
+
+        
+        </div><!-- Fin div - row -->
+
+    </div> <!-- Fin - Div container -->
+    
+</div>

@@ -1,0 +1,90 @@
+    <div class="container">
+        <div class="row">
+
+            <!-- Début - Block - I -->
+            <div class="col-3"></div>
+            <!-- Fin - Block - I -->
+
+            <!-- Début - block - II -->
+            <div class="col-6">
+                <form [formGroup]="registrationForm">
+
+                            <!-- Début - Input - Nom -->
+                            <div class="form-group">
+                                <label for="nom">Nom</label>
+                                <input [class.is-invalid]="registrationForm.get('nom').invalid &&
+                                                        registrationForm.get('nom').touched" formControlName="nom" type="text" class="form-control" id="nom" placeholder="Entrez votre nom">
+                                
+                                <div *ngIf="registrationForm.get('nom').invalid && registrationForm.get('nom').touched">
+                                  <small *ngIf="registrationForm.get('nom').errors?.required" class="text-danger">Ce champ est obligatoire</small>  
+                                  <small *ngIf="registrationForm.get('nom').errors?.minlength" class="text-danger">3 caratères au minimum</small>  
+                                </div>
+                            </div>
+                            <!-- Fin - Input - Nom -->
+
+                            <!-- Début - Input - Prenom -->
+                            <div class="form-group">
+                                <label for="nom">Prenom</label>
+                                <input [class.is-invalid]="registrationForm.get('prenom').invalid &&
+                                                           registrationForm.get('prenom').touched" formControlName="prenom" type="text" class="form-control" id="nom" placeholder="Entrez votre prenom">
+                                
+                                <div *ngIf="registrationForm.get('prenom').invalid && registrationForm.get('prenom').touched">
+                                   <small *ngIf="registrationForm.get('prenom').errors?.required" class="text-danger">Ce champ est obligatoire</small>  
+                                   <small *ngIf="registrationForm.get('prenom').errors?.minlength" class="text-danger">3 caratères au minimum</small>  
+                                </div>
+                            </div>
+                            <!-- Fin - Input - Prenom -->
+
+                            <!-- Début - Input - E-mail -->
+                            <div class="form-group">
+                                <label for="nom">E-mail</label>
+                                <input [class.is-invalid]="registrationForm.get('email').invalid &&
+                                                           registrationForm.get('email').touched" formControlName="email" type="text" class="form-control" id="nom" placeholder="Entrez votre e-mail">
+                           
+                                <div *ngIf="registrationForm.get('email').invalid && registrationForm.get('email').touched">
+                                 <small *ngIf="registrationForm.get('email').errors?.required" class="text-danger">Ce champ est obligatoire</small>  
+                                 <small *ngIf="registrationForm.get('email').errors?.email" class="text-danger">exemple@exemple.com</small>  
+                                </div>
+                            </div>
+                            <!-- Fin - Input - E-mail -->
+
+                            <!-- Début - Input - Password -->
+                            <div class="form-group">
+                                <label for="nom">Mot de passe</label>
+                                <input [class.is-invalid]="registrationForm.get('password').invalid &&
+                                                           registrationForm.get('password').touched" formControlName="password" type="password" class="form-control" id="nom" placeholder="Chisissez un mot de passe">
+                            
+                                <div *ngIf="registrationForm.get('password').invalid && registrationForm.get('password').touched">
+                                 <small *ngIf="registrationForm.get('password').errors?.required" class="text-danger">Ce champ est obligatoire</small>  
+                                 <small *ngIf="registrationForm.get('password').errors?.pattern" class="text-danger">format invalid</small>  
+                                </div>
+                            </div>
+                            <!-- Fin - Input - Password -->
+
+                            <!-- Début - Input - Confirm password -->
+                            <div class="form-group">
+                                <label for="nom">Confirmation mot de passe</label>
+                                <input formControlName="confirmPassword" type="password" class="form-control" id="nom" placeholder="Confirmez votre mot de passe">
+                            
+                                <div class="mt-0" *ngIf="registrationForm.errors && registrationForm.get('confirmPassword').touched">
+                                 <small class="text-danger" *ngIf="registrationForm.errors?.misMatch">Le mot de passe n'est Conforme</small>
+                                </div>
+                            </div>
+                            <!-- Fin - Input - Confirm password -->   
+
+                            <!-- Début - Bouton - Submit -->
+                            <button type="submit" class="mt-5 btn btn-outline-primary btn-lg btn-block" (click)="add()">Signup</button>
+                            <!-- Fin - Bouton - Submit -->
+                            
+                </form>
+            </div>  
+            <!-- Fin - block - II -->
+
+            <!-- Début - block - III -->
+            <div class="col-3"></div> 
+            <!-- Fin - block - III -->
+
+        
+        </div><!-- Fin div - row -->
+
+    </div> <!-- Fin - Div container -->

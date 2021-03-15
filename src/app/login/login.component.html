@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+
+        <!-- Début - Block I -->
+        <div class="col-3"></div>
+        <!-- Fin - Block I -->
+
+        <!-- Début - Block II -->
+        <div class="col-6">
+            <form [formGroup]="loginForm">
+
+                        <!-- Début - Input - Nom -->
+                        <div class="form-group">
+                            <label for="nom">E-mail</label>
+                            <input [class.is-invalid]="loginForm.get('email').invalid &&
+                                                       loginForm.get('email').touched" formControlName="email" type="text" class="form-control" id="nom" placeholder="Entrez votre e-mail">
+                       
+                            <div *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+                             <small *ngIf="loginForm.get('email').errors?.required" class="text-danger">Ce champ est obligatoire</small>  
+                             <small *ngIf="loginForm.get('email').errors?.email" class="text-danger">exemple@exemple.com</small>  
+                            </div>
+                        </div>
+                        <!-- Fin - Input - Nom -->
+
+                        <!-- Début - Input - Prenom -->
+                        <div class="form-group">
+                            <label for="nom">Mot de passe</label>
+                            <input formControlName="password" type="password" class="form-control" id="nom" placeholder="Entrez votre mot de passe">
+                        </div>
+                        <!-- Fin - Input - Prenom -->
+
+                        <!-- Début - Bouton submit -->
+                        <button type="submit" class="mt-5 btn btn-outline-success btn-lg btn-block" (click)="login()">Login</button>
+                        <!-- Fin - Bouton submit -->
+            </form>
+        </div>  
+        <!-- Fin - Block II -->
+
+        <!-- Début - Block III -->
+        <div class="col-3"></div> 
+        <!-- Fin - Block III -->
+        
+
+    </div> <!-- Fin div row -->
+</div> <!-- Fin - div container -->
